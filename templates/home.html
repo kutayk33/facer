@@ -1,0 +1,40 @@
+  
+<!doctype html>
+<title>Face Detection Web App</title>
+<h2>Face Detection Web APP</h2>
+<h2>Select an image to detect the faces</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+{% if filename %}
+	<div>
+		<img src="{{ url_for('display_image', filename=filename) }}">
+	</div>
+{% endif %}
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit">
+	</p>
+</form>
+
+<h2>upload a new image and retrain the model</h2>
+<p><a href=upload ><button class=grey style="height:25px;width:100px">New Person</button></a></p>
+
+<h2>Add person's information</h2>
+<p><a href=clients/new ><button class=grey style="height:25px;width:100px">Add</button></a></p>
+
+<h2>See all person's info</h2>
+<p><a href=clients ><button class=grey style="height:25px;width:100px">Info</button></a></p>

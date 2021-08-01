@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+
+    <img src="{{ user_image }}" alt="User Image">
+
+    <table>
+        <thead>
+           <tr>
+              <th>Name</th>
+           </tr>
+        </thead>
+        
+        <tbody>
+            {% for name in names %}
+                <tr>
+                    <td><a href = "{{ url_for('info_perso', name=name) }}">{{ name }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+     </table>
+
+    <h2>Main Page</h2>
+    <p><a href=/ ><button class=grey style="height:25px;width:50px">go</button></a></p>
+    
+</body>
+</html>
